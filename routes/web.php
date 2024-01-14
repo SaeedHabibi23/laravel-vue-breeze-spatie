@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
+ 
+});
+
+
+Route::middleware(['auth', 'verified', 'role:user'])->name('user.')->prefix('user')->group(function(){
+    Route::get('/', [UserController::class, 'index'])->name('index');
  
 });
 
