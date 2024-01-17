@@ -12,6 +12,7 @@ import { Head } from '@inertiajs/vue3';
         </template>
 
         <div class="py-4">
+            <!-- here is the user auth name -->
             <h1> Hello {{ $page.props.auth.user.name }} </h1>
             
         </div>
